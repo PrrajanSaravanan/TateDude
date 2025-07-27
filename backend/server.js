@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+require('dotenv').config();
 
 // Import DB connection
 const connectDB = require('./config/database');
@@ -159,7 +160,9 @@ app.use(errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;
+console.log("hello:",process.env.PORT);
 const server = app.listen(PORT, () => {
+  // console.log("MONGO URI IS:", process.env.MONGODB_URI);
   console.log(`
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
